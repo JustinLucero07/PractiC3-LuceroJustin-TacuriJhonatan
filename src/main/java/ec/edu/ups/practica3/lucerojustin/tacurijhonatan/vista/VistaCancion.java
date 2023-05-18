@@ -4,9 +4,7 @@
  */
 package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.vista;
 
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cancion;
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cantante;
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Compositor;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Cancion;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

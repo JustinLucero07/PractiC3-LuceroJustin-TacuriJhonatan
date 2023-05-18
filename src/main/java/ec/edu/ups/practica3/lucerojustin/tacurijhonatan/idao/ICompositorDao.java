@@ -4,7 +4,7 @@
  */
 package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.idao;
 
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Compositor;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Compositor;
 import java.util.List;
 
 /**
@@ -15,7 +15,7 @@ public interface ICompositorDao {
     
     public void create(Compositor compositor);
     public Compositor read(String nombre);
-    public void update(String nombre,String nombreCAmbio ,String apellidoCambio);
+    public void update(Compositor compositor);
     public void delete(Compositor compostior);   
     public Compositor buscarPorTituloDeCancion(String valor);
     public List<Compositor> findAll();

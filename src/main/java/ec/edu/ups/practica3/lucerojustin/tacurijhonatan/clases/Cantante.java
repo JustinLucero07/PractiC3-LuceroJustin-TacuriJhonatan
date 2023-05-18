@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases;
+package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,7 +75,36 @@ public class Cantante extends Persona { // Define la clase Cantante, que extiend
         Disco discoUno = new Disco(codigo, nombre, anioDeLanzamiento); // Se crea un objeto Disco con los datos pasados como argumento.
         discografia.add(discoUno); // Se agrega el objeto creado a la lista "discografia".
     }
+    
+    public void actualizarDisco(Disco discoActualizado) {
+        for (Disco disco : discografia) {
+            if (disco.getCodigo() == discoActualizado.getCodigo()) {
+                disco.setNombre(discoActualizado.getNombre());
+                disco.setAnioDeLanzamiento(discoActualizado.getAnioDeLanzamiento());
+                System.out.println("Disco actualizado correctamente.");
+                return;
+            }
+        }
+        System.out.println("El disco no se encontró en la lista.");
+    }
 
+    public void eliminarDisco(int codigoDisco) {
+        Disco discoAEliminar = null;
+        for (Disco disco : discografia) {
+            if (disco.getCodigo() == codigoDisco) {
+                discoAEliminar = disco;
+                break;
+            }
+        }
+
+        if (discoAEliminar != null) {
+            discografia.remove(discoAEliminar);
+            System.out.println("Disco eliminado correctamente.");
+        } else {
+            System.out.println("El disco con el código especificado no se encontró en la discografía.");
+        }
+    }
+    
     public String getNombreArtistico() {
         return nombreArtistico; // Se retorna el valor de la variable "nombreArtistico".
     }
@@ -153,4 +182,8 @@ public class Cantante extends Persona { // Define la clase Cantante, que extiend
     public String toString() {
         return "Cantante"+ super.toString()  + "\nNombreArtistico:" + nombreArtistico + "\nGeneroMusical=" + generoMusical + "\nNumeroDeSencillos=" + numeroDeSencillos + "\nNumeroDeConciertos=" + numeroDeConciertos + "\nNumeroDeGiras=" + numeroDeGiras + "\nLista de Discos: " + discografia ;
     }  
+
+    public void actualizarCancion(Cancion cannueva) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

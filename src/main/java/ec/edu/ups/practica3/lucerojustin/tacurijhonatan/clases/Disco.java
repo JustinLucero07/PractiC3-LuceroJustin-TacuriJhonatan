@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases;
+package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases;
 
 import java.util.Objects;
 
@@ -48,6 +48,8 @@ public class Disco {
     public void setAnioDeLanzamiento(int anioDeLanzamiento) {
         this.anioDeLanzamiento = anioDeLanzamiento; // asigna el año de lanzamiento del disco a la variable de instancia correspondiente
     }
+    
+    
 
     @Override
     public int hashCode() {
@@ -79,3 +81,4 @@ public class Disco {
         return "\nDisco: " + "Codigo: " + codigo + "Nombre: " + nombre + "AnioDeLanzamiento: " + anioDeLanzamiento + '}'; // retorna una cadena de caracteres con la información del disco
     }
 }
+

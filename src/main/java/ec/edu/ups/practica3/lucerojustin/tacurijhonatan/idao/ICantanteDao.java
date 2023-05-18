@@ -4,7 +4,7 @@
  */
 package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.idao;
 
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cantante;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Cantante;
 import java.util.List;
 
 /**
@@ -15,7 +15,7 @@ public interface ICantanteDao {
     
     public void create(Cantante cantante);
     public Cantante read(String nombre);
-    public void update(String nombre,String nombreCamb, String apellidoCamb);
+    public void update(Cantante cantante);
     public void delete(Cantante cantante);  
     public Cantante buscarPorNombreDeDisco(String valor);
     public List<Cantante> findAll();

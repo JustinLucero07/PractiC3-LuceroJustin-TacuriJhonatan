@@ -4,7 +4,7 @@
  */
 package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.vista;
 
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Disco;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Disco;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

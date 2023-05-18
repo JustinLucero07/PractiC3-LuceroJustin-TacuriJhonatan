@@ -4,9 +4,8 @@
  */
 package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.dao;
 
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cancion;
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cantante;
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Compositor;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Cancion;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Compositor;
 import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.idao.ICompositorDao;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -42,15 +41,13 @@ public class CompositorDao implements ICompositorDao{
     }
 
     @Override
-    public void update(String nombre,String nombreCAmbio ,String apellidoCambio) {
-        for (Compositor compositor : listaCompositor) {
-            if(compositor.getNombre().equals(nombre)){
-                compositor.setNombre(nombreCAmbio);
-                compositor.setApellido(apellidoCambio);
-            } else {
-                System.out.println("El nombre Ingresado no existe ");
+    public void update(Compositor compositor) {
+        for (int i = 0; i < listaCompositor.size(); i++) {
+            Compositor c = listaCompositor.get(i);
+            if (c.getCodigo() == compositor.getCodigo()) {
+                listaCompositor.set(i, compositor);
+                break;
             }
-            
         }
     }
 

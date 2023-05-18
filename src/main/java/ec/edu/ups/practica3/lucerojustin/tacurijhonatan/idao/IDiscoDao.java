@@ -4,8 +4,7 @@
  */
 package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.idao;
 
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cantante;
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Disco;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Disco;
 import java.util.List;
 
 /**

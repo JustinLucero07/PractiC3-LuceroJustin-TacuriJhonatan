@@ -4,8 +4,8 @@
  */
 package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.vista;
 
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cantante;
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Disco;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Cantante;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Disco;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -52,20 +52,34 @@ public class VistaCantante {
         return new Cantante(nArtistico, generoMusical, numeroSencillos, numeroConciertos, numeroGiras,dis , codigo, nombre, apellido, edad, nacionalidad, salario);
     }
     
-    public List<String> actualizarCantante() {
-        List<String> listita = new ArrayList<>();
-        System.out.println("Ingresa el nobre Artistico del cantante a actualizar");
+    public Cantante actualizarCantante() {
         
-        String nomArtis = teclado.next();
-        listita.add(nomArtis);
-        System.out.println("Ingrese los nuevos Datos (nombre, apellido)");
-        String nombre = teclado.next();
-        System.out.println("Nombre nuevo:");
-        listita.add(nombre);
-        System.out.println("Apellido nuevo:");
-        String apellido = teclado.next();
-        listita.add(apellido);
-        return listita ;
+        System.out.println("Ingresa el codigo del cantante a actualizar");
+        int cod = teclado.nextInt();
+        
+        System.out.print("Codigo nuevo: ");
+        int codigon = teclado.nextInt();
+        System.out.print("Nombre nuevo: ");
+        String nombren = teclado.next();
+        System.out.print("Apellido nuevo: ");
+        String apellidon = teclado.next();
+        System.out.print("Edad nuevo: ");
+        int edadn = teclado.nextInt();
+        System.out.print("Nacionalidad nuevo: ");
+        String nacionalidadn = teclado.next();
+        System.out.print("Salario nuevo: ");
+        double salarion = teclado.nextDouble();
+        System.out.print("Nombre Artistico nuevo: ");
+        String nArtisticon = teclado.next();
+        System.out.print("Genero Musical nuevo: ");
+        String generoMusicaln = teclado.next();
+        System.out.print("Número de sencillos nuevo: ");
+        int numeroSencillosn = teclado.nextInt();
+        System.out.print("Numero de Conciertos nuevo: ");
+        int numeroConciertosn = teclado.nextInt();
+        System.out.print("Número de giras nuevo: ");
+        int numeroGirasn = teclado.nextInt(); 
+        return new Cantante(nArtisticon, generoMusicaln, numeroSencillosn, numeroConciertosn, numeroGirasn, null, codigon, nombren, apellidon, edadn, nacionalidadn, salarion);
     }
 
     public String eliminarCantante() {
@@ -96,5 +110,21 @@ public class VistaCantante {
         System.out.println("Ingrese el nombre del disco: ");
         String nomdis = teclado.next();
         return nomdis;
+    }
+    
+    public int eliminarDisco(){
+        System.out.println("Ingrese el codigo del disco a eliminar: ");
+        int codis = teclado.nextInt();
+        return codis;
+    }
+    
+    public Disco actualizarDisco(){
+        System.out.println("Ingrese el codigo del disco a actuzaliar: ");
+        int ac = teclado.nextInt();
+        System.out.println("Nombre nuevo: ");
+        String nomnu = teclado.next();
+        System.out.println("Anio nuevo: ");
+        int anion = teclado.nextInt();
+        return new Disco(ac, nomnu, anion);
     }
 }

@@ -4,9 +4,9 @@
  */
 package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.dao;
 
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cancion;
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cantante;
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Disco;
+
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Cantante;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Disco;
 import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.idao.ICantanteDao;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -41,13 +41,13 @@ public class CantanteDao implements ICantanteDao {
     }
 
     @Override
-    public void update(String nombreArt,String nombreCAmb , String apellidoCam) {
-        for (Cantante listaCantante : listaCantantes) {
-            if (listaCantante.getNombreArtistico().equals(nombreArt)){
-                listaCantante.setNombre(nombreCAmb);
-                listaCantante.setApellido(apellidoCam);
+    public void update(Cantante cantante) {
+        for (int i = 0; i < listaCantantes.size(); i++) {
+            Cantante c = listaCantantes.get(i);
+            if (c.getCodigo() == cantante.getCodigo()) {
+                listaCantantes.set(i, cantante);
+                break;
             }
-            
         }
     }
 

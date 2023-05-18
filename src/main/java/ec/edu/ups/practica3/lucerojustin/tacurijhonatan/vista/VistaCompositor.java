@@ -4,9 +4,9 @@
  */
 package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.vista;
 
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cancion;
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cantante;
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Compositor;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Cancion;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Cantante;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Compositor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -68,19 +68,23 @@ public class VistaCompositor {
             
         }
     }
-    public List<String> actualizarCompositor(){
-        List<String> listita = new ArrayList<>();
-        System.out.println("Ingresa el nobre Artistico del cantante a actualizar");
-        String nomArtis = teclado.next();
-        listita.add(nomArtis);
-        System.out.println("Ingrese los nuevos Datos (nombre, apellido)");
+    public Compositor actualizarCompositor(){
+        System.out.println("Ingresa el codigo del compositor a actualizar");
+        int codigo = teclado.nextInt();
+        System.out.println("Ingrese los nuevos Datos: ");
         System.out.println("Nombre nuevo: ");
-        String nombre = teclado.next();
-        listita.add(nombre);
+        String nombren = teclado.next();
         System.out.println("Apellido nuevo:");
-        String apellido = teclado.next();
-        listita.add(apellido);
-        return listita;
+        String apellidon = teclado.next();
+        System.out.print("Edad nueva: ");
+        int edad2n = teclado.nextInt();
+        System.out.print("Nacionalidad nueva: ");
+        String nacionalidad2n = teclado.next();
+        System.out.print("Salario nuevo: ");
+        double salario2n = teclado.nextDouble();   
+        System.out.print("Numero de Composiciones nuevos: ");
+        int numeroComposicionesn = teclado.nextInt();
+        return new Compositor(numeroComposicionesn, null, null, codigo, nombren, apellidon, edad2n, nacionalidad2n, salario2n);
     }
     public String eliminarCompositor(){
         System.out.println("Ingresa el nombre del compositor a elimintar : ");
@@ -104,6 +108,24 @@ public class VistaCompositor {
         System.out.println("Ingrese el nombre artistico del cantante: ");
         String ncan = teclado.next();
         return ncan;
+    }
+    
+    public Cancion actualizarCancion(){
+        System.out.println("Ingrese el codigo de la cancion a actualizar: ");
+        int ac = teclado.nextInt();
+        System.out.println("Titulo nuevo: ");
+        String tn = teclado.next();
+        System.out.println("Letra nueva: ");
+        String letran = teclado.next();
+        System.out.println("Tiempo nuevo: ");
+        double tiempon = teclado.nextDouble();
+        return new Cancion(ac, tn, letran, tiempon);
+    }
+    
+    public int eliminarCancion(){
+        System.out.println("Ingrese el codigo de la cancion a eliminar: ");
+        int codigoc = teclado.nextInt();
+        return codigoc;
     }
 }
 

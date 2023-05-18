@@ -36,13 +36,13 @@ public class Principal {
         VistaCancion cancion = new VistaCancion();
         CompositorDao comp = new CompositorDao();
         CancionDao can = new CancionDao();
-        ControladorCompositor controladorcomp = new ControladorCompositor(compositor, comp, cancion, can);
+        ControladorCompositor controladorcomp = new ControladorCompositor(compositor, comp, cancion, can, cant);
         
         int opcion = 0 ;
         do{
             
             
-            System.out.println("\t******MENU****** \n1.Ingresar Cantante \n2.Ingresar compositor\n3.Eliminar\n4.Buscar\n5.Actualizar\n6.Imprimir\n7.Busqueda de Cantante por Nombre de Disco. \n8.Busqueda de compositor por nombre de Cancion.\n10.Salir");
+            System.out.println("\t******MENU****** \n1.Ingresar Cantante \n2.Ingresar compositor\n3.Eliminar\n4.Buscar\n5.Actualizar\n6.Imprimir\n7.Busqueda de Cantante por Nombre de Disco. \n8.Busqueda de compositor por nombre de Cancion.\n9.Agregar Cliente. \n10.Salir");
             System.out.println("Ingrese una opcion: ");
             opcion = teclado.nextInt();
             switch (opcion) {
@@ -66,9 +66,9 @@ public class Principal {
                     break;
                 case 3 :
                     System.out.println("----Que desea eliminar cantante o compositor: ");
-                    System.out.println("----Ingrese 1 si desea eliminar cantante o ingrese 2 si desea eliminar compsitor: ");
+                    System.out.println("\n-Ingrese 1 si desea eliminar cantante \n-Ingrese 2 si desea eliminar compsitor \n-Ingrese 3 si desea eliminar disco \n-Ingrese 4 si desea eliminar cancion: ");
                     int ingrese = teclado.nextInt();
-                    while (ingrese != 1 && ingrese != 2) {
+                    while (ingrese != 1 && ingrese != 4) {
                         System.out.println("Opción inválida. Inténtelo nuevamente:");
                         ingrese = teclado.nextInt();
                         break;
@@ -81,11 +81,15 @@ public class Principal {
                     
                     } else if (ingrese == 2) {
                         controladorcomp.elimininarCompo();
+                    } else if (ingrese == 3){
+                        controladorcan.eliminarDisco();
+                    } else if (ingrese == 4){
+                        controladorcomp.eliminarCancion();
                     }
                     break;
                 case 4 :
                     System.out.println("----Que desea eliminar cantante o compositor: ");
-                    System.out.println("----Ingrese 1 si desea buscar cantante o ingrese 2 si desea buscar compsitor: ");
+                    System.out.println("\n-Ingrese 1 si desea buscar cantante \n-Ingrese 2 si desea buscar compsitor :");
                     int ingrese1 = teclado.nextInt();
                     while (ingrese1 != 1 && ingrese1 != 2) {
                         System.out.println("Opción inválida. Inténtelo nuevamente:");
@@ -100,13 +104,13 @@ public class Principal {
                     
                     } else if (ingrese1 == 2) {
                         controladorcomp.verCompositor();
-                    }
+                    } 
                     break;
                 case 5 :
-                    System.out.println("----Que desea eliminar cantante o compositor: ");
-                    System.out.println("----Ingrese 1 si desea buscar cantante o ingrese 2 si desea buscar compsitor: ");
+                    System.out.println("----Que desea actualizar cantante o compositor: ");
+                    System.out.println("\n-Ingrese 1 si desea actualizar cantante \n-Ingrese 2 si desea actualizar compsitor \n-Ingrese 3 si desea actualizar disco \n-Ingrese 4 si desea actualizar cancion:: ");
                     int ingrese2 = teclado.nextInt();
-                    while (ingrese2 != 1 && ingrese2 != 2) {
+                    while (ingrese2 != 1 && ingrese2 != 4) {
                         System.out.println("Opción inválida. Inténtelo nuevamente:");
                         ingrese2 = teclado.nextInt();
                         break;
@@ -115,11 +119,12 @@ public class Principal {
                     System.out.println("Opción válida ingresada: " + ingrese2);
 
                     if (ingrese2 == 1) {
-                        controladorcan.actualizar();
-                    
                     } else if (ingrese2 == 2) {
                         controladorcomp.actualizarCompositor();
-                    }
+                    } else if (ingrese2 == 3){
+                        controladorcan.actualizarDisco();
+                    } else if (ingrese2 == 4)
+                        controladorcomp.actualizarCancion();
                     break;
                 case 6 :
                     System.out.println("*******LISTA CANTANTES***********");
@@ -133,9 +138,12 @@ public class Principal {
                 case 8 :
                     controladorcomp.buscarPorCancion();
                     break;
+                case 9 :
+                    controladorcomp.agregarClienteCan();
+                    break;
         }
             
-        }while(opcion!=9);
+        }while(opcion!=10);
         
     }
 }

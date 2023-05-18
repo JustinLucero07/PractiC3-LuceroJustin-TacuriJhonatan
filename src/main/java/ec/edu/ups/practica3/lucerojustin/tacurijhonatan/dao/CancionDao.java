@@ -4,7 +4,7 @@
  */
 package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.dao;
 
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cancion;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Cancion;
 import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.idao.ICancionDao;
 import java.util.ArrayList;
 import java.util.Iterator;

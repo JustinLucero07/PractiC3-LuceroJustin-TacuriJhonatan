@@ -4,8 +4,8 @@
  */
 package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.controlador;
 
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Cantante;
-import ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases.Disco;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Cantante;
+import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases.Disco;
 import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.idao.ICantanteDao;
 import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.idao.IDiscoDao;
 import ec.edu.ups.practica3.lucerojustin.tacurijhonatan.vista.VistaCantante;
@@ -48,12 +48,8 @@ public class ControladorCantante {
     
     //llama al DAO para actualizar un cliente
     public void actualizar() {
-        List<String> a = new ArrayList<>();
-        a = vistaCantante.actualizarCantante();
-        String nombre = (String) a.get(0);
-        String nombreCamb = (String)a.get(1);
-        String apellidoCamb = (String)a.get(2);
-        cantanteDao.update(nombre, nombreCamb, apellidoCamb);
+        Cantante cantante = vistaCantante.actualizarCantante();
+        cantanteDao.update(cantante);
     }
 
     //llama al DAO para eliminar un cliente
@@ -82,6 +78,34 @@ public class ControladorCantante {
     public void buscarporDisco(){
         String nombre = vistaCantante.buscarPorDisco();
         cantanteDao.buscarPorNombreDeDisco(nombre);
+    }
+    
+    public void eliminarDisco(){
+        String nombreCantante = vistaCantante.buscarCantante();
+        Cantante cantante = cantanteDao.read(nombreCantante);
+
+        if (cantante != null) {
+            int codigoDisco = vistaCantante.eliminarDisco();
+            cantante.eliminarDisco(codigoDisco);
+            cantanteDao.update(cantante);
+            System.out.println("Disco eliminado correctamente.");
+        } else {
+            System.out.println("No se encontró el cantante en la base de datos.");
+        }
+    }
+    
+    public void actualizarDisco(){
+        String nombreCantante = vistaCantante.buscarCantante();
+        Cantante cantante = cantanteDao.read(nombreCantante);
+
+        if (cantante != null) {
+            Disco discoa = vistaCantante.actualizarDisco();
+            cantante.actualizarDisco(discoa);
+            cantanteDao.update(cantante);
+            System.out.println("Disco actualizado correctamente.");
+        } else {
+            System.out.println("No se encontró el cantante en la base de datos.");
+        }
     }
     
 }

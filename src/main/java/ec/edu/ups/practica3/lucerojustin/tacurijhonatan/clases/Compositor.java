@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ec.edu.ups.practica02.lucerojustin.tacurijhonatan.clases;
+package ec.edu.ups.practica3.lucerojustin.tacurijhonatan.clases;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,13 +76,42 @@ public class Compositor extends Persona {
     }    
 
     public void agregarCancion(int codigo,String titulo,String letra,double tiempoEnMinutos){ // Método para agregar una canción al top 100 de Billboard
-        Cancion cancion = new Cancion(codigo, titulo, letra, tiempoEnMinutos); // Se crea un objeto de tipo Cancion
+        Cancion cancion = Cancion(codigo, titulo, letra, tiempoEnMinutos); // Se crea un objeto de tipo Cancion
         cancionesTop100Billboard.add(cancion); // Se agrega la canción a la lista de canciones top 100 de Billboard
     }
-
+    
+    
+    
     public void agregarClientE(Cantante clientes) { // Método para agregar un cantante cliente al compositor
         cliente.add(clientes); // Se agrega el cantante a la lista de clientes del compositor
     }
+    
+    public void actualizarCancion(Cancion cancionActualizada) {
+        int codigoCancion = cancionActualizada.getCodigo();
+        for (Cancion cancion : cancionesTop100Billboard) {
+            if (cancion.getCodigo() == codigoCancion) {
+                cancion.setTitulo(cancionActualizada.getTitulo());
+                cancion.setLetra(cancionActualizada.getLetra());
+                cancion.setTiempoEnMinutos(cancionActualizada.getTiempoEnMinutos());
+                System.out.println("Canción actualizada correctamente.");
+                return;
+            }
+        }
+        System.out.println("El código de canción no se encontró en el top 100 de Billboard.");
+    }
+
+
+    public void eliminarCancion(int codigoCancion) {
+        for (Cancion cancion : cancionesTop100Billboard) {
+            if (cancion.getCodigo() == codigoCancion) {
+                cancionesTop100Billboard.remove(cancion);
+                System.out.println("Canción eliminada correctamente.");
+                return;
+            }
+        }
+        System.out.println("El código de canción no se encontró en el top 100 de Billboard.");
+    }
+
 
     public int getNumeroDeComposiciones() { // Getter para obtener el número de composiciones del compositor
         return numeroDeComposiciones;
@@ -111,4 +141,9 @@ public class Compositor extends Persona {
     public String toString() { // Override del método toString para mostrar información del objeto Compositor en forma de string
         return "Compositor " + super.toString()  + "\nNumeroDeComposiciones=" + numeroDeComposiciones + "\nCancionesTop100Billboard: " + cancionesTop100Billboard + "\nClientes : " + cliente ;
     }    
+
+    private Cancion Cancion(int codigo, String titulo, String letra, double tiempoEnMinutos) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
+
